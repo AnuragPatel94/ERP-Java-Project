@@ -1,0 +1,35 @@
+// CREATE PACKAGE NAMED LEAVE APPLY FEATURE
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.chromedriver;
+
+//CREATE PUBLIC CLASS
+    public static void main(string[]args)
+
+//LUNCH CHROME BROWSER & INSTANTIATE DRIVER
+    system.setproperty("webdriver.chrome.driver","C:\Users\selenium\ANURAG")
+    WebDriver driver = new chromeDriver();
+
+// MAXIMIZE WINDOW
+    driver.manage().window().maximize();
+
+// LUNCH WEB PAGE & SAVE IN STRING VARIABLE
+    driver.get("https://glbg.servergi.com:8072/SIMWEBGLB/Login");                            
+    String title = driver.getTitle();
+    system. out.println("https://glbg.servergi.com:8072/SIMWEBGLB/Login:" + driver.getcurrenturl);
+
+// LOCATE USER NAME & ENTRE USERID
+    driver.findelement(By.id("txtUserid")).sendKeys("Arti");
+
+// LOCATE USER PASSWORD & ENTER PASSWORD
+    driver.findElement(by.name("txtPass").sendkyes("Mini@456");
+
+// LOCATE LOGIN BTN & PERFORM CLICK ACTION
+    driver.findElement(by.class name("blueBtn")).click();
+
+// FIND ALERT BTN & FIND YES BTN AND CLICK FOR ACCEPTING
+   driver.findElement(by.XPath("//div[@class='field']"));
+   driver.switchTo().alert();
+   driver.findElement(by.XPath("//button[normalize-space()='Yes']")).click();
+
+
+
