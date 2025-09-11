@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.chromedriver;
     public static void main(string[]args)
 
 //LUNCH CHROME BROWSER & INSTANTIATE DRIVER
-    system.setproperty("webdriver.chrome.driver","C:\Users\selenium\ANURAG")
+    system.setproperty("webdriver.chrome.driver","C:\Users\selenium\anurag\chromedriver.exe")
     WebDriver driver = new chromeDriver();
 
 // MAXIMIZE WINDOW
