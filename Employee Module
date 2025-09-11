@@ -5,9 +5,16 @@ import org.openqa.selenium.chrome.chromedriver;
 //CREATE PUBLIC CLASS
     public static void main(string[]args)
 
-//LUNCH CHROME BROWSER & INSTANTIATE DRIVER
-    system.setproperty("webdriver.chrome.driver","C:\Users\selenium\anurag\chromedriver.exe")
-    WebDriver driver = new chromeDriver();
+//LUNCH CHROME BROWSER &  CREATE OBJECT AND INSTANTIATE DRIVER
+    //system.setproperty("webdriver.chrome.driver","C:\Users\selenium\anurag\chromedriver.exe")
+    //WebDriver driver = new chromeDriver();
+    //system.setproperty("webdriver.gecko.driver","C:\Users\selenium\anurag\geckodriver.exe")
+    //WebDriver driver = new firefoxDriver();
+    //system.setproperty("webdriver.safari.driver","C:\Users\selenium\anurag\safaridriver.exe")
+    //WebDriver driver = new safariDriver();
+      WebDriverManager.chromedriver().setup();
+      WebDriver driver = new chromeDriver();
+
 
 // MAXIMIZE WINDOW
     driver.manage().window().maximize();
@@ -15,7 +22,9 @@ import org.openqa.selenium.chrome.chromedriver;
 // LUNCH WEB PAGE & SAVE IN STRING VARIABLE
     driver.get("https://glbg.servergi.com:8072/SIMWEBGLB/Login");                            
     String title = driver.getTitle();
-    system. out.println("https://glbg.servergi.com:8072/SIMWEBGLB/Login:" + driver.getcurrenturl);
+    System. out.println("https://glbg.servergi.com:8072/SIMWEBGLB/Login:" + driver.getcurrenturl());
+    System. out.println("Title of The Web Page:" + driver.getTitle());
+    System. out.println(driver.getPageSource());
 
 // LOCATE USER NAME & ENTRE USERID
     driver.findelement(By.id("txtUserid")).sendKeys("Arti");
