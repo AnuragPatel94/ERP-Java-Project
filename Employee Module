@@ -27,18 +27,60 @@ import org.openqa.selenium.chrome.chromedriver;
     System. out.println(driver.getPageSource());
 
 // LOCATE USER NAME & ENTRE USERID
-    driver.findelement(By.id("txtUserid")).sendKeys("Arti");
+    driver.findelement(By.id("txtUserid")).sendKeys("glbctm3655");
+    &
+    driver.findelement(By.Xpath("//input[@id='txtUserId']")).sendkeys("glbctm3655");
 
 // LOCATE USER PASSWORD & ENTER PASSWORD
     driver.findElement(by.name("txtPass").sendkyes("Mini@456");
+    &
+    driver.findelement(By.Xpath("//input[@id='txtPass']]")).sendkeys("Anurag@3655");
 
 // LOCATE LOGIN BTN & PERFORM CLICK ACTION
     driver.findElement(by.class name("blueBtn")).click();
+    &
+    driver.findelement(By.Xpath("//input[@id='btnLogin']")).ckick(); 
 
 // FIND ALERT BTN & FIND YES BTN AND CLICK FOR ACCEPTING
    driver.findElement(by.XPath("//div[@class='field']"));
    driver.switchTo().alert();
    driver.findElement(by.XPath("//button[normalize-space()='Yes']")).click();
+
+// SWITCH TO EMPLOYEE DASHBOARD (WINDOW)
+   string Currentwindow Handel = driver.getwindowhandle();
+   driver.switchto().window(CurrentWindow Handle);
+
+// PERFORM MOUSE ACTION
+// LOCATE ELEMENT
+   Webelement Button= driver.FindElement(By.Xpath("//input[@id='txtemployee"));
+
+//RIGHT CLICK
+   Actions act = newAction(driver);
+   act.contextclick(button).perform();
+
+//DOUBLE CLICK
+   Actions act = newAction(driver);
+   act.doubleclick(button).perform();
+
+//DRAG AND DROP ACTION
+//LOCATE SOURCE AND TARGET ELEMENT
+  WebElement source = driver.findElement(By.id("box1"));
+  WebElement source = driver.findElement(By.id("box2"));
+//PERFORM ACTION
+  Actions act = newAction(driver);
+  act.DragAndDrop("box1","box2").perform();
+
+//HOVER ACTION
+//LOCATE ELEMENT
+  WebElement element = driver.findElement(By.Text("EMPLOYEE"));
+//PERFORM ACTION
+   Actions act = newAction(driver);
+   act.moveToElement(element).perform();
+
+//LOCATE  LEAVE APPLY ELEMENT
+  WebElement element = driver.findElement(By.Text("LeaveApply")).click();
+
+
 
 
 
