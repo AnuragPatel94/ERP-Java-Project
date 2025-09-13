@@ -46,9 +46,15 @@ import org.openqa.selenium.chrome.chromedriver;
    driver.switchTo().alert();
    driver.findElement(by.XPath("//button[normalize-space()='Yes']")).click();
 
-// SWITCH TO EMPLOYEE DASHBOARD (WINDOW)
+// SWITCH TO EMPLOYEE DASHBOARD AND VERIFY HEADER LINK
    string Currentwindow Handel = driver.getwindowhandle();
    driver.switchto().window(CurrentWindow Handle);
+   List<WebElement> headerLinks=driver.findElements(By.className("mm-item"));
+   System.out.println("Total No Of Header link:"+headerLinks.size());
+
+// VERIFY ALL LINK ON PAGE  
+   List<WebElement>Links=driver.findElements(By.tagName("a"));
+   System.out.println("Total No Of link:"+Links.size());
 
 // PERFORM MOUSE ACTION
 // LOCATE ELEMENT
