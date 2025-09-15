@@ -86,6 +86,34 @@ import org.openqa.selenium.chrome.chromedriver;
 //LOCATE  LEAVE APPLY ELEMENT
   WebElement element = driver.findElement(By.Text("LeaveApply")).click();
 
+// HANDLING DROP DOWN LIST
+// LOCATE ELEMENT
+   elemet= driver.findElement(By.id("Value");
+   select dropdown= new Select(element);
+   dropdown.selectBy VisibleText("input");
+   &
+   dropdown.selectBy Value("input");
+   dropdown.selectBy index("input");
+// CHECK MULTIPLE OPTION
+   if (dropdown.isMultiple());
+       {System.out.println("Dropdown is Multiple");}
+   else
+       {system.out.println("dropdown is not multiple");}
+//PRINT LIST OF DROPDOWN WEBELEMENT
+   List<WebElement> Alldropdownoption=dropdown.getoption();
+   for (WebElement el: Alldropdownoption)
+       {system.out.println(el.getText());
+        System.out.println("Total Option:"+Alldropdownoption.size());}
+
+// COUNT AND PRINT HYPERLINK ON PAGE
+//LOCATE ELEMENT(PAGE CONTAIN LINKS UNDER ANCHOR TAG("a")**
+  List<WebElement> LinkElement= driver.findElement(By.TagName("a"));
+  System.out.println("Total link On Web Page:"+LinkElement.size());
+PRINT ALL LINK TEXT
+   For(WebElement el:LinkElement){
+   System.out.println(el.gettext());}
+
+
 
 
 
