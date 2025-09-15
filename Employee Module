@@ -107,10 +107,10 @@ import org.openqa.selenium.chrome.chromedriver;
 
 // COUNT AND PRINT HYPERLINK ON PAGE
 //LOCATE ELEMENT(PAGE CONTAIN LINKS UNDER ANCHOR TAG("a")**
-  List<WebElement> LinkElement= driver.findElement(By.TagName("a"));
+  List<WebElement> LinkElement= driver.findElements(By.TagName("a"));
   System.out.println("Total link On Web Page:"+LinkElement.size());
 PRINT ALL LINK TEXT
-   For(WebElement el:LinkElement){
+   for(WebElement el:LinkElement){
    System.out.println(el.gettext());}
 
 
