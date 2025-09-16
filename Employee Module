@@ -109,9 +109,17 @@ import org.openqa.selenium.chrome.chromedriver;
 //LOCATE ELEMENT(PAGE CONTAIN LINKS UNDER ANCHOR TAG("a")**
   List<WebElement> LinkElement= driver.findElements(By.TagName("a"));
   System.out.println("Total link On Web Page:"+LinkElement.size());
-PRINT ALL LINK TEXT
+//PRINT ALL LINK TEXT
    for(WebElement el:LinkElement){
    System.out.println(el.gettext());}
+
+//VERIFY LOGO IS DISPLAYED
+   WebElement logo = driver.findElement(By.xpath("//a[@aria-label='GL Bajaj']"));
+   System.out.println("Page Logo:"+logo.isDisplayed());
+
+//CHECK SEARCH BTN IS ENABLE OR NOT
+   boolean status = driver.findElement(By.xpath("//input[@NAME='header1$txtSeach']")).isEnabled();
+   System.out.println("Enable Status:"+status);
 
 
 
