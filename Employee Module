@@ -121,6 +121,11 @@ import org.openqa.selenium.chrome.chromedriver;
    boolean status = driver.findElement(By.xpath("//input[@NAME='header1$txtSeach']")).isEnabled();
    System.out.println("Enable Status:"+status);
 
+//COUNT TOTAL NUMBER OF RADIO BTN
+// LOCATE RADIO BTN
+   List<WebElement> RadioBtnList=driver.findElements(By.xpath("//input[@id='rbSearchFor_0']"))
+   System.out.println("No Of Redio Button:"+RadioBtnList.size());
+
 
 
 
