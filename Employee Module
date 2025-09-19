@@ -42,9 +42,7 @@ import org.openqa.selenium.chrome.chromedriver;
     driver.findelement(By.Xpath("//input[@id='btnLogin']")).ckick(); 
 
 // FIND ALERT BTN & FIND YES BTN AND CLICK FOR ACCEPTING
-   driver.findElement(by.XPath("//div[@class='field']"));
-   driver.switchTo().alert();
-   driver.findElement(by.XPath("//button[normalize-space()='Yes']")).click();
+   driver.switchTo().alert().accept();
 
 // SWITCH TO EMPLOYEE DASHBOARD AND VERIFY HEADER LINK
    string Currentwindow Handel = driver.getwindowhandle();
@@ -135,6 +133,13 @@ import org.openqa.selenium.chrome.chromedriver;
 			
   driver.navigate().forward();
   System.out.println(driver.getCurrentUrl());
+
+//CHECK ALL CHECKBOX OR LAST FEW WITH FOR LOOP
+  List<WebElement> checkboxes=driver.findElements(By.xpath("//input[@class='form-check-input' and @type='checkbox']"));
+  for (WebElement checkbox:checkboxes) {
+  checkbox .click();
+  for(int i=4;i<checkboxes.size();i++)
+  {checkboxes.get(i).click();}}
 
 
 
