@@ -103,6 +103,12 @@ import org.openqa.selenium.chrome.chromedriver;
        {system.out.println(el.getText());
         System.out.println("Total Option:"+Alldropdownoption.size());}
 
+// SELECT MULTI OPTION FROM DROPDOWN LIST
+    for (WebElement el: Alldropdownoption){
+         string Alldropdownoption=el.getText();
+    if (Alldropdownoption.equal('Value1')|| Alldropdownoption.equal('Value2')|| Alldropdownoption.equal('Value3')){
+       Alldropdownoption.click();}}
+
 // COUNT AND PRINT HYPERLINK ON PAGE
 //LOCATE ELEMENT(PAGE CONTAIN LINKS UNDER ANCHOR TAG("a")**
   List<WebElement> LinkElement= driver.findElements(By.TagName("a"));
