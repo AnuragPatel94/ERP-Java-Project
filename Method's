@@ -92,11 +92,13 @@ import org.openqa.selenium.chrome.chromedriver;
    &
    dropdown.selectBy Value("input");
    dropdown.selectBy index("input");
+
 // CHECK MULTIPLE OPTION
    if (dropdown.isMultiple());
        {System.out.println("Dropdown is Multiple");}
    else
        {system.out.println("dropdown is not multiple");}
+
 //PRINT LIST OF DROPDOWN WEBELEMENT
    List<WebElement> Alldropdownoption=dropdown.getoption();
    for (WebElement el: Alldropdownoption)
@@ -146,6 +148,91 @@ import org.openqa.selenium.chrome.chromedriver;
   checkbox .click();
   for(int i=4;i<checkboxes.size();i++)
   {checkboxes.get(i).click();}}
+
+//UPLOAD FILE
+1-SEND KEYS METHOD
+//LOCATE ELEMENT
+  WebElement Button=driver.finfElement(By.Xpath);
+  Action act=new Action(driver);
+  act.moveToElement(Button).click().perform();
+
+2-ROBOT CLASS METHOD
+  Robot rb=newrobot()
+  rb.delay(2000);
+StringSelection ss=newStringSelection("FilePath");
+Toolkit.getDefaultToolkit().getSystemClipboard().setcontent(ss,null);
+//PERFORM CTRL ACTION
+  rb.keyPress(KeyEvent.VK_CONTROL);
+  rb.keyPress(KeyEvent.VK_V));
+  rb.keyReleae(KeyEvent.VK_V)
+  rb.keyPress(KeyEvent.VK_ENTER)
+  rb.keyReleae(KeyEvent.VK_ENTER)
+
+//CAPTURE SCREEN SHOT
+//FULL PAGE USEING Ashot(Chrome)
+ Screenshot screenshot = new AShot()
+ .shootingStrategy(ShootingStrategies.viewportPasting(1000))
+ .takeScreenshot(driver);
+  ImageIO.write(screenshot.getImage(), "PNG", new File("FullPageAShot.png"));
+
+//PARTICULAR SECTION
+  // LOCATE ELEMENT
+     WebElement element = driver.findElement(By.cssSelector("h1"));
+
+  // CAPTURE ELEMENT SCREENSHOT
+     File src = element.getScreenshotAs(OutputType.FILE);
+     FileHandler.copy(src, new File("ElementScreenshot.png"));
+
+//SCROLLING PAGE
+  JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        // Scroll down by 500 pixels
+           js.executeScript("window.scrollBy(0,500)");
+           Thread.sleep(2000);
+        // Scroll up by 300 pixels
+           js.executeScript("window.scrollBy(0,-300)");
+           Thread.sleep(2000);
+        // Scroll to bottom
+           js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+        // Locate element
+           WebElement element = driver.findElement(By.xpath("//h1"));
+        // Scroll till element is in view
+           js.executeScript("arguments[0].scrollIntoView(true);", element);
+        // Scroll right by 200 pixels
+           js.executeScript("window.scrollBy(200,0)");
+
+//HADLING TABLE ON PAGE
+  //LOCATE TABLE
+    WebElement table = driver.findElement(By.id("bookTable"));
+  // Row count (tr)
+    List<WebElement> rows = table.findElements(By.tagName("tr"));
+    System.out.println("Total Rows: " + rows.size());
+ // Column count (th)
+    List<WebElement> cols = table.findElements(By.tagName("th"));
+    System.out.println("Total Columns: " + cols.size());
+ //READ ENTIRE DATA IN TABLE
+    for (WebElement row : rows) {
+    List<WebElement> cells = row.findElements(By.tagName("td"));
+    for (WebElement cell : cells) {
+        System.out.print(cell.getText() + " | ");
+    }
+    System.out.println();
+ // Get 2nd row (index starts from 0)
+    List<WebElement> secondRow = rows.get(2).findElements(By.tagName("td"));
+    for (WebElement cell : secondRow) {
+    System.out.print(cell.getText() + " | ");
+}
+ // Print all Authors (2nd column)
+    for (int i = 1; i < rows.size(); i++) { // skip header row
+    WebElement author = rows.get(i).findElements(By.tagName("td")).get(1);
+    System.out.println(author.getText());
+}
+//FIND ROW AND COLUMN VALUE
+  int rowIndex = 2;  // 3rd row
+  int colIndex = 0;  // 1st column
+  String cellValue = rows.get(rowIndex).findElements(By.tagName("td")).get(colIndex).getText();
+  System.out.println("Cell Value: " + cellValue);
+
 
 
 
