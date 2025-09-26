@@ -32,7 +32,7 @@ import org.openqa.selenium.chrome.chromedriver;
     driver.findelement(By.Xpath("//input[@id='txtUserId']")).sendkeys("glbctm3655");
 
 // LOCATE USER PASSWORD & ENTER PASSWORD
-    driver.findElement(by.name("txtPass").sendkyes("Mini@456");
+    driver.findElement(by.name("txtPass").sendkyes("Anurag@3655");
     &
     driver.findelement(By.Xpath("//input[@id='txtPass']]")).sendkeys("Anurag@3655");
 
@@ -232,6 +232,117 @@ Toolkit.getDefaultToolkit().getSystemClipboard().setcontent(ss,null);
   int colIndex = 0;  // 1st column
   String cellValue = rows.get(rowIndex).findElements(By.tagName("td")).get(colIndex).getText();
   System.out.println("Cell Value: " + cellValue);
+
+//USE IMPLICIT EXPLICIT AND FLUCENT WAIT
+
+  // ----------------- 1. IMPLICIT WAIT -----------------
+        // Applies globally for all findElement calls
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+        // Locate username and password fields (implicit wait applied)
+        driver.findElement(By.id("txtUserID")).sendKeys("glbctm3655");
+        driver.findElement(By.id("txtPass")).sendKeys("Anurag@3655");
+
+        // ----------------- 2. EXPLICIT WAIT -----------------
+        // Wait until login button is clickable
+        WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebElement loginBtn = explicitWait.until(
+                ExpectedConditions.elementToBeClickable(By.cssSelector("button[type='submit']"))
+        );
+        loginBtn.click();
+
+        // ----------------- 3. FLUENT WAIT -----------------
+        // Wait for logout button after successful login
+        FluentWait<WebDriver> fluentWait = new FluentWait<>(driver)
+                .withTimeout(Duration.ofSeconds(20))      // max wait time
+                .pollingEvery(Duration.ofSeconds(2))      // check every 2 sec
+                .ignoring(NoSuchElementException.class);  // ignore if not found
+
+        WebElement logoutBtn = fluentWait.until(d ->
+                d.findElement(By.cssSelector("a.button.secondary.radius"))
+        );
+
+        System.out.println("Login Successful! Logout button text: " + logoutBtn.getText());
+
+        // Close browser
+        driver.quit();
+    }
+Implicit Wait: one-time setup, applied to all findElement.
+
+Explicit Wait: applied only when needed, based on a condition.
+
+Fluent Wait: more flexible version of explicit wait (polling + exception handling).
+
+
+
+//iFRAME HANDLING
+  // Switch to iframe by ID or Name
+        driver.switchTo().frame("mce_0_ifr");
+
+        // Locate text area inside iframe
+        WebElement textArea = driver.findElement(By.id("tinymce"));
+        textArea.clear();
+        textArea.sendKeys("Hello, this is inside iframe!");
+
+        // Switch back to main content
+        driver.switchTo().defaultContent();
+
+//NESTED FRAME
+   // Switch to top frame
+        driver.switchTo().frame("frame-top");
+
+        // Switch to middle frame (inside top)
+        driver.switchTo().frame("frame-middle");
+
+        // Get text inside middle frame
+        WebElement content = driver.findElement(By.id("content"));
+        System.out.println("Text in Middle Frame: " + content.getText());
+
+        // Switch back to parent (top frame)
+        driver.switchTo().parentFrame();
+
+        // Now switch to right frame (sibling of middle)
+        driver.switchTo().frame("frame-right");
+        System.out.println("Text in Right Frame: " + driver.findElement(By.tagName("body")).getText());
+
+        // Back to main content
+        driver.switchTo().defaultContent();
+
+        // Switch to bottom frame
+        driver.switchTo().frame("frame-bottom");
+        System.out.println("Text in Bottom Frame: " + driver.findElement(By.tagName("body")).getText());
+
+//HANDLE DATE PICKER
+  // Switch into iframe containing datepicker
+        driver.switchTo().frame(driver.findElement(By.className("demo-frame")));
+
+        // Open calendar widget
+        WebElement dateField = driver.findElement(By.id("datepicker"));
+        dateField.click();
+
+        String expectedMonth = "October";
+        String expectedYear = "2025";
+        String expectedDay = "15";
+
+        // Loop until desired month-year appears
+        while (true) {
+            String month = driver.findElement(By.className("ui-datepicker-month")).getText();
+            String year = driver.findElement(By.className("ui-datepicker-year")).getText();
+
+            if (month.equals(expectedMonth) && year.equals(expectedYear)) {
+                break;
+            } else {
+                // Click Next button
+                driver.findElement(By.xpath("//a[@title='Next']")).click();
+            }
+        }
+
+        // Select the day
+        driver.findElement(By.xpath("//a[text()='" + expectedDay + "']")).click();
+
+        System.out.println("Custom date selected successfully!");
+    }
+}
 
 
 
