@@ -111,6 +111,16 @@ import org.openqa.selenium.chrome.chromedriver;
     if (Alldropdownoption.equal('Value1')|| Alldropdownoption.equal('Value2')|| Alldropdownoption.equal('Value3')){
        Alldropdownoption.click();}}
 
+//HANDLE HIDDEN DROPDOWN LIST
+    for (WebElement option : options) {
+            String text = option.getText();
+            System.out.println("Option: " + text);
+            if (text.equals("Group 1, option 2")) {  // Select specific option
+                option.click();
+                break;
+            }
+
+
 // COUNT AND PRINT HYPERLINK ON PAGE
 //LOCATE ELEMENT(PAGE CONTAIN LINKS UNDER ANCHOR TAG("a")**
   List<WebElement> LinkElement= driver.findElements(By.TagName("a"));
@@ -232,6 +242,24 @@ Toolkit.getDefaultToolkit().getSystemClipboard().setcontent(ss,null);
   int colIndex = 0;  // 1st column
   String cellValue = rows.get(rowIndex).findElements(By.tagName("td")).get(colIndex).getText();
   System.out.println("Cell Value: " + cellValue);
+
+// DYANAMIC TABLE PAGINATION
+   // USEING SUBSTRING METHD FOR COUNTING ALL PAGES
+   // inbuilt method- s.substring(s.Indexof("(")+1,s.Indexof("Pages"-1))
+      String text=driver.findElementBy(xpathe"xpath,'Pages').getText();"
+      int total_pages=integer.ParseInt(text.substring(text.Indexof("(")+1,text.Indexof("Pages"-1)));
+//REAPITING PAGES
+      for(int p=1;p<5;p++){
+        if(p>1){
+    WebElemnt active_page=driver.findBy(xpath"xpath//*"+p+""
+    active_page.click();
+//READING DATA FROM PAGE
+    int NoofRow=driver.findElements(Byxpath"xpath"//tbody);
+    for (int=r1;r+NoofRows;r++);
+         string CustName=driver.find(Byxpath"xpath//")
+         string CustID=driver.find(Byxpath"xpath//")
+         string CustMail=driver.find(Byxpath"xpath//")
+     System.out.println(CustName+"\t"CustID+"\t"CustMail);
 
 //USE IMPLICIT EXPLICIT AND FLUCENT WAIT
 
