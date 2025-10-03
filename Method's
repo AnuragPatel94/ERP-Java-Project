@@ -68,18 +68,65 @@ import org.openqa.selenium.chrome.chromedriver;
 
 //DRAG AND DROP ACTION
 //LOCATE SOURCE AND TARGET ELEMENT
-  WebElement source = driver.findElement(By.id("box1"));
-  WebElement source = driver.findElement(By.id("box2"));
+  WebElement source1 = driver.findElement(By.id("box1"));
+  WebElement source2 = driver.findElement(By.id("box2"));
 //PERFORM ACTION
   Actions act = newAction(driver);
-  act.DragAndDrop("box1","box2").perform();
+  act.DragAndDrop("source1","source2").perform();
 
+//USING AXES TO PERFORM DRAG AND DROP ACTION
+   WebDriver driver = new ChromeDriver();
+ // Open target page
+     driver.get("https://example.com/drag-and-drop-demo");
+// LOCATE ELEMENT
+    WebElement min_slider = driver.findElement(By.xpath("xpath"));
+// Create Actions instance
+     Actions act = new Actions(driver);
+// LOCATE AXES VALUE
+   system.out.println("Default Loation:"+min_slider.getLocation());
+// PERFORM ACTION
+        act.dragAndDropBy(min_slider, X axes Value, Y axes Value).perform();  
+    }
 //HOVER ACTION
 //LOCATE ELEMENT
   WebElement element = driver.findElement(By.Text("EMPLOYEE"));
 //PERFORM ACTION
    Actions act = newAction(driver);
    act.moveToElement(element).perform();
+
+
+//KEYBOARD ACTION
+
+        WebDriver driver = new ChromeDriver();
+        driver.get("URL");
+
+        // Locate the input field or textarea
+            WebElement inputField = driver.findElement(By.id("inputBox"));
+
+        // Type some data
+           inputField.sendKeys("WELCOME TO GLBITM");
+
+        Actions act = new Actions(driver);
+
+        // Select all text: Ctrl + A
+          act.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
+
+        // Copy selected text: Ctrl + C
+          act.keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).perform();
+
+        // Move to next field: Tab
+           act.keyDown(Keys.TAB).keyUp(Keys.TAB).perform();
+
+        // Paste text: Ctrl + V (in new focused field)
+           act.keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).perform();
+
+        // IF 3 KEYS Ctrl+Shift+A
+           act.keyDown(Keys.CONTROL).keyDown(Keys.SHIFT).keyDown("A").keyUp(Keys.SHIFT).keyUp(Keys.CONTROL).perform();
+
+//NEW WINDOW HANDLE CMD
+           driver.swithcTo().newWindow(windowtype.WINDOW OR TAB);
+}
+
 
 //LOCATE  LEAVE APPLY ELEMENT
   WebElement element = driver.findElement(By.Text("LeaveApply")).click();
