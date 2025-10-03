@@ -257,6 +257,8 @@ Toolkit.getDefaultToolkit().getSystemClipboard().setcontent(ss,null);
            js.executeScript("arguments[0].scrollIntoView(true);", element);
         // Scroll right by 200 pixels
            js.executeScript("window.scrollBy(200,0)");
+        //ZOOM In ZOOM Out 
+           js.executeScript("document.body.style.zoom'50%'");
 
 //HADLING TABLE ON PAGE
   //LOCATE TABLE
